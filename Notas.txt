@@ -1,7 +1,42 @@
 
 09/11/2021
 
+git --version
 
+
+git init 
+Initialized empty Git repository in /Users/user/myproject/.git/
+
+git config user.name "thiagodmm"
+git config user.email "thiagodmm@gmail.com"
+
+
+Now that you have made a GitHub account, sign in, and create a new Repo:
+
+Then click "Create repository".
+
+
+Push Local Repository to GitHub
+Since we have already set up a local Git repo, we are going to push that to GitHub:
+
+git remote add origin https://github.com/w3schools-test/hello-world.git
+
+git push --set-upstream origin master
+
+
+
+
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/thiagodmm/css_grid_001.git
+git push -u origin master
 
 
 
