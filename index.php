@@ -75,11 +75,24 @@
 	<?php
 	if(isset($_GET['calc'])){
 		$dias = $_GET['idade'] * 365;
-		$msg = $_GET['nome'] . ' tem ' . $_GET['idade'] . ' anos e já viveu ' . $dias . ' dias aproximadamente!';
+		$msg = 'Get: '
+		. $_GET['nome'] 
+		. ' tem ' 
+		. $_GET['idade'] 
+		. ' anos e já viveu ' 
+		. $dias 
+		. ' dias aproximadamente!';
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 	}
 	if(isset($_POST['calc'])){
-		$msg = 'Post: ' . $_POST['nome'] . ' tem ' . $_POST['idade'] . ' anos de vida ' . ' e já viveu ' . $_POST['idade'] * 365 . ' dias aproximadamente ';
+		$msg = 'Post: ' 
+		. $_POST['nome'] 
+		. ' tem ' 
+		. $_POST['idade'] 
+		. ' anos de vida ' 
+		. ' e já viveu ' 
+		. $_POST['idade'] * 365 
+		. ' dias aproximadamente ';
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 	}
 	?>
