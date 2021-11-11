@@ -1,3 +1,16 @@
+11/11/2021
+
+
+
+https://www.w3c.br/
+
+		
+
+		$dias = $_POST['idade'] * 365;
+		echo $_POST['nome'] . ' tem ' . $_POST['idade'] . ' anos e já viveu ' . $dias . ' dias aproximadamente!';
+		echo "<script type='text/javascript'>alert('$msg');</script>";
+		
+	
 
 09/11/2021
 
@@ -23,10 +36,12 @@ git remote add origin https://github.com/w3schools-test/hello-world.git
 
 git push --set-upstream origin master
 
+git add --all
+git commit -m "Primeiro Commit"
+git push
+git status
 
-
-
-
+git branch
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
