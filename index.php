@@ -70,6 +70,16 @@
 	</tr>
 	</table>
 	
+	<?php
+	require_once './controller/cPessoaF.php';
+	$pessoasF = new cPessoaF();
+	
+	foreach ($pessoasF as $pessoaF):
+		echo $pessoaF-getAllPF();
+	endforeach;
+	?>
+	
+	
 	</body>
 	
 	<?php

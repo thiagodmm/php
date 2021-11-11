@@ -10,6 +10,10 @@ class pessoaF extends pessoa {
 	private $cpf;
 	private $sexo;
 	
+	public function __construct() {
+		
+	}
+	
 	public function pessoaF(){
 		
 	}
