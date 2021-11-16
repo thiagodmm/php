@@ -77,9 +77,51 @@
 	require_once './controller/cPessoaJ.php';
 	$cadPFs = new cPessoaF();
 	$cadPJs = new cPessoaJ();
+
+    $pf1 = new pessoaF();
+    $pf1->setNome('Darth Vader');
+    $pf1->setTelefone(51876542027);
+    $pf1->setEmail('vader@gmail.com');
+    $pf1->setEndereco('Death Star');
+    $pf1->setCpf(76736499876);
+    $pf1->setSexo('M');
+    $cadPFs->addPessoaF($pf1);
+
+    $pj2 = new pessoaJ();
+    $pj2->setNome('João das Candongas');
+    $pj2->setTelefone(51554423333);
+    $pj2->setEmail('faleconoscoo@espetinhoze.com.br');
+    $pj2->setEndereco('Rua Carazinho');
+    $pj2->setCnpj(8787324422323);
+    $pj2->setNomeFantasia('Xis do Zé');
+    $cadPJs->addPessoaJ($pj2);
+
+    // Colocando as infos em duas colunas de uma Tabela 
+    echo '<table><tr><td>';
 	$cadPFs->imprime();
+    echo '</td><td>';
 	$cadPJs->imprimePJ();
+    echo '</td></tr></table>'
 	?>
+
+    <h3>Cadastro de Pessoa Física</h3>
+    <form method="POST">
+        <input type="text" name="nome" placeholder="Nome aqui...">
+        <br><br>
+        <input type="tel" name="tel" placeholder="Telefone aqui...">
+        <br><br>
+        <input type="email" name="email" placeholder="E-mail aqui...">
+        <br><br>
+        <input type="text" name="end" placeholder="Endereço aqui...">
+        <br><br>
+        <input type="number" name="cpf" placeholder="CPF aqui...">
+        <br><br>
+        <input type="text" name="sexo" placeholder="Sexo aqui...">
+        <br><br>
+        <input type="submit" name="salvarPF" value="SALVAR">
+        <br><br>
+        <input type="reset" name="limpar" value="LIMPAR">
+    </form>
 	
 	</body>
 	
@@ -106,6 +148,19 @@
 		. ' dias aproximadamente ';
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 	}
+
+    if(isset($_POST['salvarPF'])){
+        $formPF = new pessoaF();
+        $formPF->setNome($_POST['nome']);
+        $formPF->setTelefone($_POST['tel']);
+        $formPF->setEmail($_POST['email']);
+        $formPF->setEndereco($_POST['end']);
+        $formPF->setCpf($_POST['cpf']);
+        $formPF->setSexo($_POST['sexo']);
+        $cadPFs->addPessoaF($formPF);
+        $cadPFs->imprime();
+    }
+
 	?>
 	
 </html>
