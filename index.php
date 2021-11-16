@@ -69,6 +69,9 @@
 	</td>
 	</tr>
 	</table>
+
+    <br>
+    <br>
 	
 	<?php require_once './controller/cPessoaF.php';
 	require_once './controller/cPessoaJ.php';

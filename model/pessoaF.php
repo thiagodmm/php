@@ -36,7 +36,7 @@ class pessoaF extends pessoa {
 	}
 	
 	public function __toString() {
-		$pes = 'Nome: ' . $this->getNome() . '<br>'
+		$pes = '- Nome: ' . $this->getNome() . '<br>'
 		. ' - Telefone: ' . $this->getTelefone() . '<br>'
 		. ' - E-mail: ' . $this->getEmail() . '<br>'
 		. ' - Endereço: ' . $this->getEndereco() . '<br>'
