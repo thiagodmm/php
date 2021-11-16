@@ -29,5 +29,15 @@ class pessoaJ extends pessoa {
 	public function setNomeFantasia($nomeFantasia): void {
 		$this->nomeFantasia = $nomeFantasia;
 	}
+	
+	public function __toString() {
+		$pes = 'Nome: ' . $this->getNome() . '<br>'
+		. ' - Telefone: ' . $this->getTelefone() . '<br>'
+		. ' - E-mail: ' . $this->getEmail() . '<br>'
+		. ' - Endereço: ' . $this->getEndereco() . '<br>'
+		. ' - CNPJ: ' . $this->getCnpj() . '<br>'
+		. ' - Nome Fantasia: ' . $this->getNomeFantasia() . '<br><br>';
+		return $pes;
+	}
 
 }

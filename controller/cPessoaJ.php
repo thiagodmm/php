@@ -4,12 +4,12 @@
 * Descrição de cPessoaJ
 * @author ThiagoMachado
 */
-require_once '../model/pessoaJ.php';
+require_once './model/pessoaJ.php';
 
 class cPessoaJ {
 	
 	//Código aqui
-	private $pj;
+	private $pj = [];
 	
 	public function __construct() {
 		$this->mokPJ();
@@ -23,7 +23,7 @@ class cPessoaJ {
 		$pj1->setEndereco('Av. Venâncio Aires');
 		$pj1->setCnpj(444334343232);
 		$pj1->setNomeFantasia('Senac Tech RS Poa');
-		$this->pj = $pj1;
+		$this->addPessoaJ($pj1);
 		
 		$pj2 = new pessoaJ();
 		$pj2->setNome('Plinio Nuts');
@@ -32,11 +32,21 @@ class cPessoaJ {
 		$pj2->setEndereco('Rua Soledade');
 		$pj2->setCnpj(3232324422323);
 		$pj2->setNomeFantasia('Espetinho do Gaúcho');
-		$this->pj = $pj2;
+		$this->addPessoaJ($pj2);
 	}
 	
 	public function getAllPJ() {
 		return $this->pj;
+	}
+	
+	public function addPessoaJ($p) {
+		array_push($this->pj,$p);
+	}
+	
+	public function imprimePJ() {
+		foreach ($this->pj as $pj) {
+			echo $pj;
+		}
 	}
 	
 }

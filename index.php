@@ -70,15 +70,13 @@
 	</tr>
 	</table>
 	
-	<?php
-	require_once './controller/cPessoaF.php';
-	$pessoasF = new cPessoaF();
-	
-	foreach ($pessoasF as $pessoaF):
-		echo $pessoaF-getAllPF();
-	endforeach;
+	<?php require_once './controller/cPessoaF.php';
+	require_once './controller/cPessoaJ.php';
+	$cadPFs = new cPessoaF();
+	$cadPJs = new cPessoaJ();
+	$cadPFs->imprime();
+	$cadPJs->imprimePJ();
 	?>
-	
 	
 	</body>
 	
