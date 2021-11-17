@@ -4,7 +4,7 @@
 * Descrição de cPessoaF
 * @author ThiagoMachado
 */
-require_once './model/pessoaF.php';
+require_once '../model/pessoaF.php';
 
 class cPessoaF {
 	
@@ -36,7 +36,9 @@ class cPessoaF {
 	}
 	
 	public function getAllPF() {
-		return $this->pf;
+		//return $this->pf;
+        $_REQUEST['pfs'] = $this->pf;
+        require_once '../view/listPessoaF.php';
 	}
 	
 	public function imprime() {
