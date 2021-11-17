@@ -18,10 +18,10 @@ class cPessoaF {
 	public function mokPF() {
 		$pf1 = new pessoaF();
 		$pf1->setNome('Luke Skywalker');
-		$pf1->setTelefone(51991412027);
+		$pf1->setTelefone(5155512027);
 		$pf1->setEmail('luke@gmail.com');
 		$pf1->setEndereco('Tattooine');
-		$pf1->setCpf(67636497034);
+		$pf1->setCpf(56723497034);
 		$pf1->setSexo('M');
 		$this->addPessoaF($pf1);
 		
@@ -51,5 +51,17 @@ class cPessoaF {
 		array_push($this->pf, $p);
 	}
 	
+    public function inserir() {
+        if(isset($_POST['salvarPF'])){
+            $pf = new pessoaF();
+            $pf->setNome($_POST['nome']);
+            $pf->setTelefone($_POST['tel']);
+            $pf->setEmail($_POST['email']);
+            $pf->setEndereco($_POST['endereco']);
+            $pf->setCpf($_POST['cpf']);
+            $pf->setSexo($_POST['sexo']);
+            $this->addPessoaF($pf);
+        }
+    }
 	
 }

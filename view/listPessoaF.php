@@ -22,6 +22,7 @@
     <tr>
         <th>Nome</th>
         <th>CPF</th>
+        <th>Sexo</th>
     </tr>
     <tr>
     </tr>
@@ -36,6 +37,9 @@
         </td>
         <td>
         <?php echo $pf->getCpf(); ?>
+        </td>
+        <td>
+        <?php echo $pf->getSexo(); ?>
         </td>
     </tr>
     <?php endforeach; ?>
