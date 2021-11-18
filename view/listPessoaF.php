@@ -39,7 +39,12 @@
         <?php echo $pf->getCpf(); ?>
         </td>
         <td>
-        <?php echo $pf->getSexo(); ?>
+        <?php if($pf->getSexo() == "F"){
+            echo "Feminino";
+        } else {
+            echo "Masculino";
+        }
+        echo ""; ?>
         </td>
     </tr>
     <?php endforeach; ?>
