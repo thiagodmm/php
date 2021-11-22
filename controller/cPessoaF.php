@@ -38,6 +38,7 @@ class cPessoaF {
 	public function getAllPF() {
 		//return $this->pf;
         $_REQUEST['pfs'] = $this->pf;
+        $this->getAllBD();
         require_once '../view/listPessoaF.php';
 	}
 	
@@ -96,7 +97,30 @@ class cPessoaF {
     }
 
     public function getAllBD(){
-        
+
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $schema = 'dev3n201';
+        $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+        if(!$conexao){
+            die("Erro ao conectar. " . mysqli_error($conexao));
+        }
+
+        $sql = "select * from pessoa";
+        $result = mysqli_query($conexao, $sql);
+        if($result){
+            $pfsBD = [];
+            while ($row = $result->fetch_assoc()) {
+                array_push($pfsBD,$row);
+            }
+            $_REQUEST['pfsBD'] = $pfsBD;
+        }else {
+            $_REQUEST['pfsBD'] = 0;
+        }
+        mysqli_close($conexao);
+
     }
 
 

@@ -18,6 +18,8 @@ function geraLink($a,$s){
 
 <table>
     <tr>
+        <td style="width:75px;">
+        &nbsp;</td>
         <td>
             <h1>Cadastro de Pessoas</h1>
             <?php geraLink('gerPessoaF', 'Cadastrar Pessoa Física');
