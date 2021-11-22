@@ -4,7 +4,7 @@
 * Descrição de cPessoaJ
 * @author ThiagoMachado
 */
-require_once './model/pessoaJ.php';
+require_once '../model/pessoaJ.php';
 
 class cPessoaJ {
 	

@@ -17,7 +17,7 @@ class cPessoaF {
 	
 	public function mokPF() {
 		$pf1 = new pessoaF();
-		$pf1->setNome('Luke Skywalker');
+		$pf1->setNome('Luke S');
 		$pf1->setTelefone(5155512027);
 		$pf1->setEmail('luke@gmail.com');
 		$pf1->setEndereco('Tattooine');
@@ -26,7 +26,7 @@ class cPessoaF {
 		$this->addPessoaF($pf1);
 		
 		$pf2 = new pessoaF();
-		$pf2->setNome('Leia Organa');
+		$pf2->setNome('Leia O');
 		$pf2->setTelefone(51555555555);
 		$pf2->setEmail('leia@gmail.com');
 		$pf2->setEndereco('Aldebaraan');
@@ -63,5 +63,42 @@ class cPessoaF {
             $this->addPessoaF($pf);
         }
     }
+
+    public function inserirBD() {
+        if(isset($_POST['salvarPF'])){
+            $host = 'localhost';
+            $user = 'root';
+            $pass = '';
+            $schema = 'dev3n201';
+            $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+            if(!$conexao){
+                die("Erro ao conectar. " . mysqli_error($conexao));
+            }
+
+            $Nome = $_POST['nome'];
+            $Telefone = $_POST['tel'];
+            $Email = $_POST['email'];
+            $Endereco = $_POST['endereco'];
+            $Cpf = $_POST['cpf'];
+            $Sexo = $_POST['sexo'];
+
+            $sql = "insert into `pessoa` (`nome`, `telefone`, `email`, `endereco`, `cpf`, `sexo`) values ('$Nome','$Telefone','$Email','$Endereco','$Cpf','$Sexo')";
+
+            $result = mysqli_query($conexao, $sql);
+
+            if(!$result){
+                die("Erro ao inserir. " . mysqli_error($conexao));
+            }
+            mysqli_close($conexao);
+
+        }
+    }
+
+    public function getAllBD(){
+        
+    }
+
+
 	
 }

@@ -13,32 +13,30 @@
 <table>
         <tr>
             <td>
-            <h1>Lista Pessoas Físicas</h1>
+            <h1>Lista de Pessoas Físicas</h1>
         </td>
     </tr>
 </table>
 
-<table>
-    <tr>
-        <th>Nome</th>
-        <th>CPF</th>
-        <th>Sexo</th>
-    </tr>
-    <tr>
+<table style="margin:10px">
+    <tr style="margin:10px; background-color:lightgray">
+        <th style="margin:10px; padding: 10px;">Nome</th>
+        <th style="margin:10px; padding: 10px;">CPF</th>
+        <th style="margin:10px; padding: 10px;">Sexo</th>
     </tr>
 
     <?php
         // Código vai aqui.
         foreach ($pfs as $pf):
     ?>
-    <tr>
-        <td>
+    <tr style="margin:10px">
+        <td style="margin:10px; padding: 10px;">
         <?php echo $pf->getNome(); ?>
         </td>
-        <td>
+        <td style="margin:10px; padding: 10px;">
         <?php echo $pf->getCpf(); ?>
         </td>
-        <td>
+        <td style="margin:10px; padding: 10px;">
         <?php if($pf->getSexo() == "F"){
             echo "Feminino";
         } else {
