@@ -1,4 +1,8 @@
+
 22/11/2021
+
+
+https://www.php.net/manual/pt_BR/book.mysqli.php
 
 https://www.php.net/manual/pt_BR/mysqli-result.fetch-assoc.php
 
