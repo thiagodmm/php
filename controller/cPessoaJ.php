@@ -9,7 +9,7 @@ require_once '../model/pessoaJ.php';
 class cPessoaJ {
 	
 	//Código aqui
-	private $pj = [];
+	private $pj = []; // Array de Pessoas Jurídicas
 	
 	public function __construct() {
 		$this->mokPJ();
@@ -36,7 +36,10 @@ class cPessoaJ {
 	}
 	
 	public function getAllPJ() {
-		return $this->pj;
+		// return $this->pj;
+        $_REQUEST['pjs'] = $this->pj;
+        $this->getAllBD();
+        require_once '../view/listPessoaJ.php';
 	}
 	
 	public function addPessoaJ($p) {
@@ -48,5 +51,67 @@ class cPessoaJ {
 			echo $pj;
 		}
 	}
+
+
+    public function inserirBD() {
+        if(isset($_POST['salvarPF'])){
+            $host = 'localhost';
+            $user = 'root';
+            $pass = '';
+            $schema = 'dev3n201';
+            $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+            if(!$conexao){
+                die("Erro ao conectar. " . mysqli_error($conexao));
+            }
+
+            $Nome = $_POST['nome'];
+            $Telefone = $_POST['tel'];
+            $Email = $_POST['email'];
+            $Endereco = $_POST['endereco'];
+            $Cnpj = $_POST['cnpj'];
+            $NomeFantasia = $_POST['nomefantasia'];
+
+            $sql = "insert into `pessoa` (`nome`, `telefone`, `email`, `endereco`, `cnpj`, `nomefantasia`) values ('$Nome','$Telefone','$Email','$Endereco','$Cnpj','$NomeFantasia')";
+
+            $result = mysqli_query($conexao, $sql);
+
+            if(!$result){
+                die("Erro ao inserir. " . mysqli_error($conexao));
+            }
+            mysqli_close($conexao);
+
+        }
+    }
+
+
+    public function getAllBD(){
+
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $schema = 'dev3n201';
+        $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+        if(!$conexao){
+            die("Erro ao conectar. " . mysqli_error($conexao));
+        }
+
+        $sql = "select * from pessoa";
+        $result = mysqli_query($conexao, $sql);
+        if($result){
+            $pjsBD = [];
+            while ($row = $result->fetch_assoc()) {
+                array_push($pjsBD,$row);
+            }
+            $_REQUEST['pjsBD'] = $pjsBD;
+        }else {
+            $_REQUEST['pjsBD'] = 0;
+        }
+        mysqli_close($conexao);
+
+    }
+
+
 	
 }

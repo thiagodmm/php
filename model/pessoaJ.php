@@ -5,6 +5,8 @@
 * @author ThiagoMachado
 */
 
+require_once 'pessoa.php';
+
 class pessoaJ extends pessoa {
 	//Código aqui
 	private $cnpj;
