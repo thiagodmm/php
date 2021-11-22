@@ -25,7 +25,7 @@ $pessoasJBD = $_REQUEST['pjsBD'];
     <tr style="margin:10px; background-color:lightgray">
         <th style="margin:10px; padding: 10px;">Nome</th>
         <th style="margin:10px; padding: 10px;">CNPJ</th>
-        <th style="margin:10px; padding: 10px;">Nome Fantasia/th>
+        <th style="margin:10px; padding: 10px;">Nome Fantasia</th>
         <th style="margin:10px; padding: 10px;">Telefone</th>
         <th style="margin:10px; padding: 10px;">E-mail</th>
         <th style="margin:10px; padding: 10px;">Endereço</th>
@@ -43,7 +43,7 @@ $pessoasJBD = $_REQUEST['pjsBD'];
 
                 <td style="margin:10px; padding: 10px;"><?php echo $pj['cnpj']; ?></td>
 
-                <td style="margin:10px; padding: 10px;"><?php echo $pj['nomefantasia']; ?></td>
+                <td style="margin:10px; padding: 10px;"><?php echo $pj['nomeFantasia']; ?></td>
 
                 <td style="margin:10px; padding: 10px;"><?php echo $pj['telefone']; ?></td>
 

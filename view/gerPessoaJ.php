@@ -42,7 +42,7 @@ $cadPJs = new cPessoaJ();
             </label>
             <br><br>
             <label for:"nomefantasia">Nome Fantasia:<br>
-            <input type="text" name="nomefantasia" required placeholder="CNPJ aqui...">
+            <input type="text" name="nomefantasia" required placeholder="Nome Fantasia aqui...">
             </label>
             <br><br>
             <br><br>

@@ -97,7 +97,7 @@ class cPessoaJ {
             die("Erro ao conectar. " . mysqli_error($conexao));
         }
 
-        $sql = "select * from pessoa";
+        $sql = "select * from pessoa where cpf is null";
         $result = mysqli_query($conexao, $sql);
         if($result){
             $pjsBD = [];
