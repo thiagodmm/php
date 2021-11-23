@@ -3,8 +3,8 @@
 <?php 
 $pfs = $_REQUEST['pfs'];
 $pessoasFBD = $_REQUEST['pfsBD'];
+$pfsdb = new cPessoaF();
 ?>
-
 
 <html>
 <head>
@@ -29,6 +29,7 @@ $pessoasFBD = $_REQUEST['pfsBD'];
         <th style="margin:10px; padding: 10px;">Telefone</th>
         <th style="margin:10px; padding: 10px;">E-mail</th>
         <th style="margin:10px; padding: 10px;">Endereço</th>
+        <th style="margin:10px; padding: 10px;">Funções</th>
     </tr>
 
     <!-- Nova Tabela a partir do BD -->
@@ -57,6 +58,16 @@ $pessoasFBD = $_REQUEST['pfsBD'];
                 <td style="margin:10px; padding: 10px;"><?php echo $pf['email']; ?></td>
 
                 <td style="margin:10px; padding: 10px;"><?php echo $pf['endereco']; ?></td>
+
+                <td>
+                    <form action="<?php $pfsdb->funcoes(); ?>" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $pf['idPessoa']; ?>"/>
+                        <input type="submit" name="update" value="Editar"/>
+                        <input type="submit" name="delete" value="Deletar"/>
+
+                    </form>
+
+                </td>
 
             </tr>
             <?php

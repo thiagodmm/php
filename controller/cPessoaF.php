@@ -97,7 +97,6 @@ class cPessoaF {
     }
 
     public function getAllBD(){
-
         $host = 'localhost';
         $user = 'root';
         $pass = '';
@@ -120,6 +119,38 @@ class cPessoaF {
             $_REQUEST['pfsBD'] = 0;
         }
         mysqli_close($conexao);
+    }
+
+
+    // Funções
+    public function funcoes() {
+
+        // Deletar Pessoa
+        if(isset($_POST['delete'])){
+            $host = 'localhost';
+            $user = 'root';
+            $pass = '';
+            $schema = 'dev3n201';
+            $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+            if(!$conexao){
+                die("Erro ao conectar. " . mysqli_error($conexao));
+            }
+
+            $id = $_POST[id];
+            $sql = "delete from pessoa where idPessoa = $id";
+            $result = mysqli_query($conexao, $sql);
+            if(!$result){
+                die("Erro ao excluir: " . mysqli_error($conexao));
+            }
+            mysqli_close($_conexao);
+            header('Refresh: 0'); // Recarregar a Página (F5) em 0 segundos
+        }
+
+        // Atualizar Pessoa
+        if(isset($_POST['update'])){
+            $id = $_POST['id'];
+        }
 
     }
 
