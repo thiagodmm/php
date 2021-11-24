@@ -14,10 +14,8 @@ $cadPFs = new cPessoaF();
 
 <table>
     <tr>
-
         <td style="width:75px;">
         &nbsp;</td>
-
         <td>
             <h1>Cadastrar Pessoa Física</h1>
             <a href="../index.php">Voltar</a>
@@ -52,12 +50,9 @@ $cadPFs = new cPessoaF();
             <br><br>
             <input type="reset" name="limpar" value="LIMPAR">
             </form>
- 
         </td>
-
         <td style="width:50px;">
         &nbsp;</td>
-
         <td style="vertical-align: top;">
         <?php
             $cadPFs->getAllPF();

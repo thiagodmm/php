@@ -125,8 +125,9 @@ class cPessoaF {
     // Funções
     public function funcoes() {
 
-        // Deletar Pessoa
+        // Função para Deletar Pessoa
         if(isset($_POST['delete'])){
+
             $host = 'localhost';
             $user = 'root';
             $pass = '';
@@ -147,9 +148,36 @@ class cPessoaF {
             header('Refresh: 0'); // Recarregar a Página (F5) em 0 segundos
         }
 
-        // Atualizar Pessoa
+        // Função para Atualizar Pessoa
         if(isset($_POST['update'])){
-            $id = $_POST['id'];
+
+        $id = $_POST['id'];
+
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $schema = 'dev3n201';
+        $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+        if(!$conexao){
+            die("Erro ao conectar. " . mysqli_error($conexao));
+        }
+
+        $sql = "select * from pessoa where idPessoa=$id";
+        $result = mysqli_query($conexao, $sql);
+        if($result){
+            $pfsBD = [];
+            while ($row = $result->fetch_assoc()) {
+                array_push($pfsBD,$row);
+            }
+            $_REQUEST['pfUpdate'] = $pfsBD;
+        }else {
+            $_REQUEST['pfUpdate'] = 0;
+        }
+        mysqli_close($conexao);
+        require_once '../view/editPessoaF.php';
+
+
         }
 
     }
