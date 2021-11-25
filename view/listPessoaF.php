@@ -54,17 +54,19 @@ $pfsdb = new cPessoaF();
                 </td>
 
                 <td style="margin:10px; padding: 10px;"><?php echo $pf['telefone']; ?></td>
-
                 <td style="margin:10px; padding: 10px;"><?php echo $pf['email']; ?></td>
-
                 <td style="margin:10px; padding: 10px;"><?php echo $pf['endereco']; ?></td>
 
                 <td>
-                    <form action="<?php $pfsdb->funcoes(); ?>" method="POST">
+
+                <form action="editPessoaF.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $pf['idPessoa']; ?>"/>
                         <input type="submit" name="update" value="Editar"/>
-                        <input type="submit" name="delete" value="Deletar"/>
+                    </form>
 
+                    <form action="<?php $pfsdb->funcoes(); ?>" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $pf['idPessoa']; ?>"/>
+                        <input type="submit" name="delete" value="Deletar"/>
                     </form>
 
                 </td>
