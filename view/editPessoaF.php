@@ -53,7 +53,7 @@ $pesUp = $pfBD->getPessoaById($idPessoaF);
             </label>
 
             <br><br>
-            <input type="submit" name="updatePF" value="Salvar Alterações">
+            <input type="submit" name="updatePF" value="Salvar Alterações"/>
             <input type="submit" name="cancelar" value="Cancelar"/>
 
         </form>
