@@ -27,7 +27,7 @@ $pesUp = $pjBD->getPessoaById($idPessoaJ);
             </label>
             <br><br>
             <label for:"telefone">Telefone:<br>
-            <input type="tel" name="telefone" required value="<?php echo $pesUp[0]['telefone']; ?>" />
+            <input type="tel" name="tel" required value="<?php echo $pesUp[0]['telefone']; ?>" />
             </label>
             <br><br>
             <label for:"email">E-mail:<br>

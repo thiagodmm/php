@@ -26,7 +26,7 @@ $cadPJs = new cPessoaJ();
             </label>
             <br><br>
             <label for:"tel">Telefone:<br>
-            <input type="tel" name="tel" required placeholder="Telefone aqui...">
+            <input type="tel" name="telefone" required placeholder="Telefone aqui...">
             </label>
             <br><br>
             <label for:"email">E-mail:<br>
