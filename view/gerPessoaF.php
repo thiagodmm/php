@@ -55,7 +55,7 @@ $cadPFs = new cPessoaF();
         &nbsp;</td>
         <td style="vertical-align: top;">
         <?php
-            $cadPFs->getAllPF();
+            $cadPFs->getAllPF();  // Traz a lista de Pessoas Físicas na TD 
         ?>
         </td>
     </tr>

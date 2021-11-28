@@ -66,7 +66,7 @@ class cPessoaJ {
             }
 
             $Nome = $_POST['nome'];
-            $Telefone = $_POST['tel'];
+            $Telefone = $_POST['telefone'];
             $Email = $_POST['email'];
             $Endereco = $_POST['endereco'];
             $Cnpj = $_POST['cnpj'];
@@ -112,6 +112,98 @@ class cPessoaJ {
 
     }
 
+    // Funções
+    public function funcoes() {
+
+        // Função para Deletar Pessoa
+        if(isset($_POST['delete'])){
+
+            $host = 'localhost';
+            $user = 'root';
+            $pass = '';
+            $schema = 'dev3n201';
+            $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+            if(!$conexao){
+                die("Erro ao conectar. " . mysqli_error($conexao));
+            }
+
+            $id = $_POST[id];
+            $sql = "delete from pessoa where idPessoa = $id";
+            $result = mysqli_query($conexao, $sql);
+            if(!$result){
+                die("Erro ao excluir: " . mysqli_error($conexao));
+            }
+            mysqli_close($_conexao);
+            header('Refresh: 0'); // Recarregar a Página (F5) em 0 segundos
+        }
+
+    }
+
+
+    public function getPessoaById($id) {
+
+        // Atualizar Pessoa
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $schema = 'dev3n201';
+        $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+        if(!$conexao){
+            die("Erro ao conectar. " . mysqli_error($conexao));
+        }
+
+        $sql = "select * from pessoa where idPessoa=$id";
+        $result = mysqli_query($conexao, $sql);
+        if($result){
+            $pjsBD = [];
+            while ($row = $result->fetch_assoc()) {
+                array_push($pjsBD,$row);
+            }
+            return $pjsBD;
+        }
+        mysqli_close($conexao); 
+    }
+
+
+
+    public function update(){
+        if(isset($_POST['updatePJ'])){
+            $host = 'localhost';
+            $user = 'root';
+            $pass = '';
+            $schema = 'dev3n201';
+            $conexao = mysqli_connect($host, $user, $pass, $schema);
+
+            if(!$conexao){
+                die("Erro ao conectar. " . mysqli_error($conexao));
+            }
+            $idPessoa = $_POST['idPessoa'];
+            $Nome = $_POST['nome'];
+            $Telefone = $_POST['telefone'];
+            $Email = $_POST['email'];
+            $Endereco = $_POST['endereco'];
+            $Cnpj = $_POST['cnpj'];
+            $Nomefantasia = $_POST['nomefantasia'];
+
+
+            $sql = "UPDATE `pessoa` SET `nome`='$Nome',`telefone`='$Telefone',"
+            . "`email`='$Email',`endereco`='$Endereco',`cnpj`='$Cnpj',"
+            . "`nomefantasia`='$Nomefantasia' WHERE `idPessoa`='$idPessoa'";
+            
+            $result = mysqli_query($conexao, $sql);
+            if(!result){
+                die("Erro ao atualizar Pessoa Jurídica!" . mysqli_error($conexao));
+            }
+            mysqli_close($conexao);
+            header('Location: ../view/gerPessoaJ.php');
+        }
+        if(isset($_POST['cancelar'])){
+            header('Location: ../view/gerPessoaJ.php');
+        }
+
+    }
 
 	
 }

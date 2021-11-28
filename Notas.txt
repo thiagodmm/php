@@ -1,4 +1,13 @@
 
+26/11/2021
+
+https://www.php.net/manual/pt_BR/book.pdo.php
+
+https://www.php.net/manual/pt_BR/mysqli.quickstart.connections.php
+
+https://www.w3schools.com/php/func_mysqli_connect.asp
+
+
 22/11/2021
 
 

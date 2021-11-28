@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 
-<?php 
+<?php
+/* 
 $pjs = $_REQUEST['pjs'];
 $pessoasJBD = $_REQUEST['pjsBD'];
+*/
+
+$pjs = $_REQUEST['pjs'];
+$pessoasJBD = $_REQUEST['pjsBD'];
+$pjsdb = new cPessoaJ();
+
 ?>
 
 
@@ -29,15 +36,19 @@ $pessoasJBD = $_REQUEST['pjsBD'];
         <th style="margin:10px; padding: 10px;">Telefone</th>
         <th style="margin:10px; padding: 10px;">E-mail</th>
         <th style="margin:10px; padding: 10px;">Endereço</th>
+        <th style="margin:10px; padding: 10px;">Funções</th>
     </tr>
 
     <!-- Nova Tabela a partir do BD -->
+
     <?php
         if ($pessoasJBD == null){
             echo "Tabela vazia.";
         }else{
             foreach ($pessoasJBD as $pj):
-            ?>
+    ?>
+    
+
             <tr>
                 <td style="margin:10px; padding: 10px;"><?php echo $pj['nome']; ?></td>
 
@@ -50,6 +61,22 @@ $pessoasJBD = $_REQUEST['pjsBD'];
                 <td style="margin:10px; padding: 10px;"><?php echo $pj['email']; ?></td>
 
                 <td style="margin:10px; padding: 10px;"><?php echo $pj['endereco']; ?></td>
+
+                <td style="margin:10px; padding: 10px;">
+
+                <!-- Botões de Editar e Deletar | 2 Forms separados -->
+
+                <form action="editPessoaJ.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $pf['idPessoa']; ?>"/>
+                    <input type="submit" name="update" value="Editar"/>
+                </form>
+
+                <form action="<?php $pjsdb->funcoes(); ?>" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $pj['idPessoa']; ?>"/>
+                    <input type="submit" name="delete" value="Deletar"/>
+                </form>
+                
+                </td>
 
             </tr>
             <?php
