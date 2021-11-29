@@ -67,7 +67,7 @@ $pjsdb = new cPessoaJ();
                 <!-- Botões de Editar e Deletar | 2 Forms separados -->
 
                 <form action="editPessoaJ.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $pf['idPessoa']; ?>"/>
+                    <input type="hidden" name="id" value="<?php echo $pj['idPessoa']; ?>"/>
                     <input type="submit" name="update" value="Editar"/>
                 </form>
 

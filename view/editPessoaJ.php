@@ -10,7 +10,9 @@ $pesUp = $pjBD->getPessoaById($idPessoaJ);
 
 // var_dump($pesUp);
 // echo "<br>" . $pesUp[0]['nome'];
+// echo $idPessoaJ
 ?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -43,7 +45,7 @@ $pesUp = $pjBD->getPessoaById($idPessoaJ);
             </label>
             <br><br>
             <label for:"nomefantasia">Nome Fantasia:<br>
-            <input type="number" name="nomefantasia" required value="<?php echo $pesUp[0]['nomefantasia']; ?>" />
+            <input type="text" name="nomefantasia" required value="<?php echo $pesUp[0]['nomeFantasia']; ?>" />
             </label>
             <br><br>
 

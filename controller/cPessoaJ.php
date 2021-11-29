@@ -170,6 +170,9 @@ class cPessoaJ {
 
     public function update(){
         if(isset($_POST['updatePJ'])){
+
+            var_dump ($_POST);
+
             $host = 'localhost';
             $user = 'root';
             $pass = '';
@@ -181,11 +184,13 @@ class cPessoaJ {
             }
             $idPessoa = $_POST['idPessoa'];
             $Nome = $_POST['nome'];
-            $Telefone = $_POST['telefone'];
+            $Telefone = $_POST['tel'];
             $Email = $_POST['email'];
             $Endereco = $_POST['endereco'];
             $Cnpj = $_POST['cnpj'];
             $Nomefantasia = $_POST['nomefantasia'];
+
+            
 
 
             $sql = "UPDATE `pessoa` SET `nome`='$Nome',`telefone`='$Telefone',"
@@ -193,7 +198,7 @@ class cPessoaJ {
             . "`nomefantasia`='$Nomefantasia' WHERE `idPessoa`='$idPessoa'";
             
             $result = mysqli_query($conexao, $sql);
-            if(!result){
+            if(!$result){
                 die("Erro ao atualizar Pessoa Jurídica!" . mysqli_error($conexao));
             }
             mysqli_close($conexao);
